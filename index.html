@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html class="no-js" lang="">
+
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <title> The Unfair Advantage </title>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="assets/css/LineIcons.3.0.css"/>
+    <link rel="stylesheet" href="assets/css/animate.css"/>
+    <link rel="stylesheet" href="assets/css/main.css"/>
+</head>
+
+<body>
+
+<p class="browserupgrade">
+    You are using an <strong>outdated</strong> browser. Please
+    <a href="https://browsehappy.com/">upgrade your browser</a> to improve
+    your experience and security.
+</p>
+
+
+<header class="header">
+    <div class="navbar-area">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg">
+                <a class="navbar-brand" href="/">
+                    <img src="assets/img/logo/logo.png" alt="logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="toggler-icon"></span>
+                    <span class="toggler-icon"></span>
+                    <span class="toggler-icon"></span>
+                </button>
+
+            </nav>
+
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<section class="hero-area" id="home">
+    <div class="container">
+        <div class="hero-inner">
+            <img src="assets/img/hero/2.png" class="hero-img" alt="">
+            <h1> want unfair advantage join us !!! </h1>
+        </div><!-- /.hero-inner -->
+    </div><!-- /.container -->
+
+    <div class="moneybox" id="leafContainer"></div>
+
+</section>
+
+<footer>
+    <div class="cotainer">
+        <div class="footer-links">
+
+            <ul>
+
+                <li>
+                    <a href="https://t.me/BugattiDoge" target="_blank">
+                        <img src="assets/img/logo/telegram.png" alt="telegram">
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://x.com/BugattiDoge" target="_blank">
+                        <img src="assets/img/logo/twitter.png" alt="twitter">
+                    </a>
+                </li>
+
+
+            </ul>
+
+        </div><!-- /.footer-links -->
+        <span> 2024 - Bugatti DOGE </span>
+    </div><!-- /.cotainer -->
+</footer>
+
+<a href="#" class="scroll-top btn-hover">
+    <img src="assets/img/logo/chev.svg" alt="chev">
+</a>
+
+
+<div class="page-loader">
+    <div class="lds-dual-ring"></div>
+</div><!-- /.page-loader -->
+
+
+<script src="assets/js/jquery-3.6.0.min.js"></script>
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/wow.min.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+    const NUMBER_OF_LEAVES = 15;
+    const width = window.screen.width;
+
+    function init() {
+        var container = document.getElementById("leafContainer");
+        for (var i = 0; i < NUMBER_OF_LEAVES; i++) {
+            container.appendChild(createALeaf());
+        }
+    }
+
+    function randomInteger(low, high) {
+        return low + Math.floor(Math.random() * (high - low));
+    }
+
+    function randomFloat(low, high) {
+        return low + Math.random() * (high - low);
+    }
+
+    function pixelValue(value) {
+        return value + "px";
+    }
+
+    function durationValue(value) {
+        return value + "s";
+    }
+
+    function createALeaf() {
+        var leafDiv = document.createElement("div");
+        var image = document.createElement("img");
+        image.src = "assets/img/cash" + randomInteger(3, 7) + ".png";
+        leafDiv.style.top = "-100px";
+        leafDiv.style.left = pixelValue(randomInteger(0, width));
+        var spinAnimationName =
+            Math.random() < 0.5
+                ? "clockwiseSpin"
+                : "counterclockwiseSpinAndFlip";
+        leafDiv.style.webkitAnimationName = "fade, drop";
+        image.style.webkitAnimationName = spinAnimationName;
+        var fadeAndDropDuration = durationValue(randomFloat(3, 9));
+        var spinDuration = durationValue(randomFloat(3, 7));
+        leafDiv.style.webkitAnimationDuration =
+            fadeAndDropDuration + ", " + fadeAndDropDuration;
+        var leafDelay = durationValue(randomFloat(0, 0));
+        leafDiv.style.webkitAnimationDelay = leafDelay + ", " + leafDelay;
+        image.style.webkitAnimationDuration = spinDuration;
+        leafDiv.appendChild(image);
+        return leafDiv;
+    }
+
+    window.addEventListener("load", init, false);
+</script>
+
+
+<script>
+    $(document).ready(function () {
+        if (document.cookie.indexOf("FooBar=true") == -1) {
+            document.cookie = "FooBar=true; max-age=86400"; // 86400: seconds in a day
+            $('#MyModal').modal('show');
+        }
+
+    });
+
+    function copy(text, target) {
+        setTimeout(function () {
+            $('#copied_tip').remove();
+        }, 800);
+        $(target).append("<div class='tip' id='copied_tip'>Copied!</div>");
+        var input = document.createElement('input');
+        input.setAttribute('value', text);
+        document.body.appendChild(input);
+        input.select();
+        var result = document.execCommand('copy');
+        document.body.removeChild(input)
+        return result;
+    }
+
+</script>
+
+</body>
+
+
+</html>
